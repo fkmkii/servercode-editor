@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Server code editor</title>
+</head>
+<body>
+
+<section id="container">
+</section>
+
+<script id="template" type="text/ractive">
+  <section>
+    <label>Application</label>
+    {{#if apps.length == 0}}
+    <h2>Please add application</h2>
+    {{else}}
+    <select value="{{app}}">
+      {{#apps}}
+      <option value="{{.}}">{{appID}} / {{appKey}}</option>
+      {{/}}
+    </select>    
+    <button on-click="start">Start</button>
+    {{/if}}
+  </section>
+  
+  <section>
+    <h2>Add application</h2>
+    <label>App ID</label><input type="text" value="{{appID}}"/><br/>
+    <label>App Key</label><input type="text" value="{{appKey}}"/><br/>
+    <label>Site</label><select value="{{site}}">
+      {{#sites}}
+      <option value="{{.}}">{{label}}</option>
+      {{/}}
+    </select><br/>
+    <label>Client ID</label><input type="text" value="{{clientID}}"/><br/>
+    <label>Client Secret</label><input type="text" value="{{clientSecret}}"/><br/>
+    <button on-click="add" disabled="{{appID.length == 0 || appKey.length == 0 || clentID.length == 0 || clientSecret.length == 0}}">Add</button>
+  </section>
+</script>
+
+<script src="./ractive.js"></script>
+<script src="./jquery.js"></script>
+<script src="./KiiLib.js"></script>
+<script src="./index.js"></script>
+
+</body>
+</html>

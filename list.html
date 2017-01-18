@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Code list</title>
+</head>
+<body>
+
+<section id="container">
+</section>
+
+<script id="template" type="text/ractive">
+  <h2>Server code list</h2>
+  <table>
+  {{#list}}
+  <tr><td>{{#if current}}[current]{{/if}}</td><td>{{id}}</td><td><button on-click="show:{{.}}">Show</button></td>
+  <td>{{#if !current}}<button on-click="setCurrent:{{.}}">Set current</button>{{/if}}</td>
+  <td><button on-click="deleteCode:{{.}}">x Delete</button></td></tr>
+  {{/}}
+  </table>
+</script>
+
+<script src="./ractive.js"></script>
+<script src="./jquery.js"></script>
+<script src="./KiiLib.js"></script>
+<script src="./list.js"></script>
+
+</body>
+</html>
